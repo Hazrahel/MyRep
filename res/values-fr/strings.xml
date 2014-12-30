@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="app_name">Book List</string>
+	<string name="looking_for_books">Recherche de livres</string>
+	<string name="no_books">Aucun livre n\'a été trouvé</string>
+
+	<string name="book_button_label">Meilleurs livres</string>
+    <string name="details">Détails</string>
+    <string name="encoding_error">Encodingage invalide</string>
+
+    <string-array name="languages">
+        <item>Défaut</item>
+        <item>Anglais</item>
+        <item>Français</item>
+        <item>Allemand</item>
+    </string-array>
+
+    <string-array name="search_param">
+        <item>Aucun</item>
+        <item>Auteur</item>
+        <item>Titre</item>
+    </string-array>
+
+</resources>
