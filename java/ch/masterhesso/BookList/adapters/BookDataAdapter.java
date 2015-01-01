@@ -16,12 +16,11 @@ import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
+import ch.masterhesso.BookList.BookListFragment;
 import ch.masterhesso.BookList.R;
 
-import ch.masterhesso.BookList.BookListActivity;
 
-
-import ch.masterhesso.BookList.BookListActivity.MyViewHolder;
+import ch.masterhesso.BookList.BookListFragment.MyViewHolder;
 import ch.masterhesso.BookList.data.BookData;
 import ch.masterhesso.BookList.tasks.GoogleBooksAPIIconTask;
 
@@ -34,13 +33,13 @@ import ch.masterhesso.BookList.tasks.GoogleBooksAPIIconTask;
 public class BookDataAdapter extends BaseAdapter implements OnClickListener {
 	
 	private static final String debugTag = "BookDataAdapter";
-	private BookListActivity activity;
+	private BookListFragment activity;
 	private GoogleBooksAPIIconTask imgFetcher;
 	private LayoutInflater layoutInflater;
 	private ArrayList<BookData> books;
 	
 	
-    public BookDataAdapter(BookListActivity a, GoogleBooksAPIIconTask i, LayoutInflater l, ArrayList<BookData> data)
+    public BookDataAdapter(BookListFragment a, GoogleBooksAPIIconTask i, LayoutInflater l, ArrayList<BookData> data)
     {
     	this.activity = a;
     	this.imgFetcher = i;

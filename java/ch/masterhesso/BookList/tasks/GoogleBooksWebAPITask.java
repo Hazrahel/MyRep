@@ -8,8 +8,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import ch.masterhesso.BookList.BookListFragment;
 import ch.masterhesso.BookList.R;
-import ch.masterhesso.BookList.BookListActivity;
 
 import ch.masterhesso.BookList.data.BookData;
 
@@ -26,24 +26,24 @@ import android.util.Log;
 public class GoogleBooksWebAPITask extends AsyncTask<String, Integer, String> {
     private ProgressDialog progDialog;
     private Context context;
-    private BookListActivity activity;
+    private BookListFragment fragment;
     private static final String debugTag = "GoogleBooksWebAPITask";
 
     /**
      * Construct a task
      *
-     * @param activity
+     * @param fragment
      */
-    public GoogleBooksWebAPITask(BookListActivity activity) {
+    public GoogleBooksWebAPITask(BookListFragment fragment) {
         super();
-        this.activity = activity;
-        this.context = this.activity.getApplicationContext();
+        this.fragment = fragment;
+        this.context = this.fragment.getActivity().getApplicationContext();
     }
 
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        progDialog = ProgressDialog.show(this.activity, "Search", this.context.getResources().getString(R.string.looking_for_books), true, false);
+        progDialog = ProgressDialog.show(this.fragment.getActivity(), "Search", this.context.getResources().getString(R.string.looking_for_books), true, false);
     }
 
     @Override
@@ -67,7 +67,7 @@ public class GoogleBooksWebAPITask extends AsyncTask<String, Integer, String> {
 //        Log.d(debugTag, result);
 
         if (result.length() == 0) {
-            this.activity.alert("Unable to find books data. Try again later.");
+            this.fragment.alert("Unable to find books data. Try again later.");
             return;
         }
 
@@ -149,6 +149,6 @@ public class GoogleBooksWebAPITask extends AsyncTask<String, Integer, String> {
                 return (int) (bookData2.getAverageRating()*10d) - (int) (bookData.getAverageRating()*10d);
             }
         });
-        this.activity.setBooks(bookDatas);
+        this.fragment.setBooks(bookDatas);
     }
 }
