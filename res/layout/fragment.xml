@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/rowbackground"
+    >
+
+    <RelativeLayout android:id="@+id/RelativeLayout01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/search_query"
+            android:layout_gravity="center_horizontal"
+            android:layout_alignParentTop="true"
+            android:textColor="@color/black"
+         />
+
+        <Button
+            style="@android:style/Widget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/book_button"
+            android:text="@string/book_button_label"
+            android:layout_below="@id/search_query"
+            android:layout_alignParentRight="true"/>
+
+        <Spinner
+            style="@android:style/Widget.Spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pattern_chooser"
+            android:layout_below="@+id/search_query"
+            android:layout_alignParentLeft="true"
+            android:entries="@array/search_param"
+            />
+
+        <Spinner
+            style="@android:style/Widget.Spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/language_chooser"
+            android:layout_below="@+id/search_query"
+            android:layout_toRightOf="@+id/pattern_chooser"
+            android:entries="@array/languages"/>
+    </RelativeLayout>
+
+    <ListView android:id="@+id/book_list"
+        android:choiceMode="singleChoice"
+        android:smoothScrollbar="false"
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="0dip"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:clickable="true">
+    </ListView>
+    
+
+
+
+</LinearLayout>
