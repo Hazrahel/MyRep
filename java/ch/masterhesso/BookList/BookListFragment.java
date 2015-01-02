@@ -7,6 +7,7 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,10 +45,25 @@ public class BookListFragment extends Fragment {
     private Spinner patternSpinner;
     private Spinner languageSpinner;
 
+    private final String debugTag = "BookListFragment";
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View view = inflater.inflate(R.layout.fragment, container, false);
+
+        if(savedInstanceState != null)
+        {
+            Log.d(debugTag, "SavedInstanceState ! = null");
+            this.books = savedInstanceState.getParcelableArrayList("DATA");
+            if(this.books != null) {
+                if (imgFetcher == null) this.imgFetcher = new GoogleBooksAPIIconTask(getActivity());
+
+                this.bookList = (ListView) view.findViewById(R.id.book_list);
+
+                bookList.setAdapter(new BookDataAdapter(this, this.imgFetcher, inflater, this.books));
+            }
+        }
 
         return view;
     }
@@ -112,16 +128,7 @@ public class BookListFragment extends Fragment {
 		        
 				
 			}
-		});  
-        
-        // Restore any already fetched data on orientation change.
-        final Object[] data = (Object[]) getActivity().getLastNonConfigurationInstance();
-
-        if(data != null) {
-        	this.books = (ArrayList<BookData>) data[0];
-        	this.imgFetcher = (GoogleBooksAPIIconTask)data[1];
-         	bookList.setAdapter(new BookDataAdapter(this, this.imgFetcher, this.layoutInflator, this.books));
-        }
+		});
     }
 
     /**
@@ -136,11 +143,12 @@ public class BookListFragment extends Fragment {
     /**
      * Save any fetched book data for orientation changes.
      */
-    public Object onRetainNonConfigurationInstance() {
-    	Object[] myStuff = new Object[2];
-    	myStuff[0] = this.books;
-    	myStuff[1] = this.imgFetcher;
-    	return myStuff;
+    @Override
+    public void onSaveInstanceState(Bundle outState)
+    {
+        super.onSaveInstanceState(outState);
+
+        outState.putParcelableArrayList("DATA", books);
     }
 
     /**

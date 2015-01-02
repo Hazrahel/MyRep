@@ -1,25 +1,45 @@
 package ch.masterhesso.BookList.data;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * A simple wrapper for our books (filled with JSON Data)
  */
-public class BookData {
+public class BookData implements Parcelable{
 	
 	private String title = "";
 	private String author = "";
-    private double averageRating = 0d;
     private String description = "";
 	private String imageUrl = "";
 	private String volumeUrl = "";
+    private double averageRating = 0d;
 
 	public BookData(String title, String authors, String imageUrl, String volumeUrl, double averageRating, String description) {
 		super();
 		this.title = title;
 		this.author = authors;
+        this.description = description;
 		this.imageUrl = imageUrl;
 		this.volumeUrl = volumeUrl;
         this.averageRating = averageRating;
-        this.description = description;
+    }
+
+    /**
+     * this would only be used by BookDataCreator for serialisation
+     *
+     * @param parcel
+     */
+    public BookData(Parcel parcel)
+    {
+        super();
+
+        this.title = parcel.readString();
+        this.author = parcel.readString();
+        this.description = parcel.readString();
+        this.imageUrl = parcel.readString();
+        this.volumeUrl = parcel.readString();
+        this.averageRating = parcel.readDouble();
     }
 
 	public String getTitle() {
@@ -71,5 +91,31 @@ public class BookData {
     public void setDescription(String description)
     {
         this.description = description;
+    }
+
+    /**
+     * Required by Parcelable
+     *
+     * @return
+     */
+    @Override
+    public int describeContents() {
+        return this.hashCode();
+    }
+
+    /** Serialisation !
+     *
+     * @param dest
+     * @param flags
+     */
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+
+        dest.writeString(title);
+        dest.writeString(author);
+        dest.writeString(description);
+        dest.writeString(imageUrl);
+        dest.writeString(volumeUrl);
+        dest.writeDouble(averageRating);
     }
 }
