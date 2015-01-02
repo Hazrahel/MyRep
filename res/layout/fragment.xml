@@ -10,12 +10,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
+        <TextView
+            android:id="@+id/query_label"
+            android:text="@string/query_label"
+            android:textAlignment="center"
+            android:layout_alignParentTop="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            style="@android:style/TextAppearance.DeviceDefault.Medium.Inverse" />
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/search_query"
-            android:layout_gravity="center_horizontal"
+            android:layout_toRightOf="@+id/query_label"
             android:layout_alignParentTop="true"
+
             android:textColor="@color/black"
          />
 
@@ -28,15 +39,35 @@
             android:layout_below="@id/search_query"
             android:layout_alignParentRight="true"/>
 
+        <TextView
+            android:id="@+id/criterion_label"
+            android:text="@string/criteria_label"
+            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/search_query"
+            android:layout_alignParentLeft="true"
+            style="@android:style/TextAppearance.DeviceDefault.Medium.Inverse" />
+
         <Spinner
             style="@android:style/Widget.Spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/pattern_chooser"
             android:layout_below="@+id/search_query"
-            android:layout_alignParentLeft="true"
+            android:layout_toRightOf="@+id/criterion_label"
             android:entries="@array/search_param"
             />
+
+        <TextView
+            android:id="@+id/language_label"
+            android:text="@string/language_label"
+            android:textAlignment="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/search_query"
+            android:layout_toRightOf="@+id/pattern_chooser"
+            style="@android:style/TextAppearance.DeviceDefault.Medium.Inverse" />
 
         <Spinner
             style="@android:style/Widget.Spinner"
@@ -44,7 +75,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/language_chooser"
             android:layout_below="@+id/search_query"
-            android:layout_toRightOf="@+id/pattern_chooser"
+            android:layout_toRightOf="@+id/language_label"
             android:entries="@array/languages"/>
     </RelativeLayout>
 

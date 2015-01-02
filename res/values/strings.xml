@@ -10,6 +10,10 @@
     <string name="details">Details</string>
     <string name="encoding_error">Invalid encoding</string>
 
+    <string name="query_label">Search for: </string>
+    <string name="criteria_label">Criteria</string>
+    <string name="language_label">Language</string>
+
     <string-array name="languages">
         <item>Default</item>
         <item>English</item>

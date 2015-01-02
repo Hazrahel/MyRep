@@ -9,6 +9,10 @@
     <string name="details">Détails</string>
     <string name="encoding_error">Encodingage invalide</string>
 
+    <string name="query_label">Rechercher: </string>
+    <string name="criteria_label">Critère</string>
+    <string name="language_label">Langue</string>
+
     <string-array name="languages">
         <item>Défaut</item>
         <item>Anglais</item>

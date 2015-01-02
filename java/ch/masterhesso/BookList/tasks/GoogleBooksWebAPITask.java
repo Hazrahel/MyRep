@@ -140,6 +140,7 @@ public class GoogleBooksWebAPITask extends AsyncTask<String, Integer, String> {
                 bookDatas.add(new BookData(title,author, imageURI, canonicalVolumeLink, averageRating, description));
             }
         } catch (JSONException e) {
+            this.fragment.alert("Unable to find books data. Try again later.");
             e.printStackTrace();
         }
 

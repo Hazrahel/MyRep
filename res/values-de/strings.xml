@@ -9,6 +9,10 @@
     <string name="details">Einzelheiten</string>
     <string name="encoding_error">Invalid encoding</string>
 
+    <string name="query_label">Suchen nach:</string>
+    <string name="criteria_label">Kriterium</string>
+    <string name="language_label">Sprache</string>
+
     <string-array name="languages">
         <item>Default</item>
         <item>Englisch</item>
