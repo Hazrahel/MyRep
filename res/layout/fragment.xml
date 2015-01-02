@@ -73,10 +73,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/book_button"
             android:text="@string/book_button_label"
-            android:layout_below="@id/search_query"
-            android:layout_toRightOf="@+id/language_chooser"
-            android:layout_alignParentRight="true"
-            android:layout_alignBottom="@+id/language_chooser"/>
+            android:layout_below="@id/language_chooser"
+            android:layout_alignParentRight="true"/>
     </RelativeLayout>
 
     <ListView android:id="@+id/book_list"
