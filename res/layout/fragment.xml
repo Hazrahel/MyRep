@@ -26,18 +26,7 @@
             android:id="@+id/search_query"
             android:layout_toRightOf="@+id/query_label"
             android:layout_alignParentTop="true"
-
-            android:textColor="@color/black"
-         />
-
-        <Button
-            style="@android:style/Widget"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/book_button"
-            android:text="@string/book_button_label"
-            android:layout_below="@id/search_query"
-            android:layout_alignParentRight="true"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/criterion_label"
@@ -47,6 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/search_query"
             android:layout_alignParentLeft="true"
+            android:layout_alignBottom="@+id/criterion_label"
             style="@android:style/TextAppearance.DeviceDefault.Medium.Inverse" />
         <Spinner
             android:id="@+id/pattern_chooser"
@@ -66,8 +56,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/search_query"
             android:layout_toRightOf="@+id/pattern_chooser"
-            style="@android:style/TextAppearance.DeviceDefault.Medium.Inverse" />
-
+            android:layout_alignBottom="@+id/language_chooser"
+            style="@android:style/TextAppearance.DeviceDefault.Medium.Inverse"/>
         <Spinner
             style="@android:style/Widget.Spinner"
             android:layout_width="wrap_content"
@@ -76,6 +66,17 @@
             android:layout_below="@+id/search_query"
             android:layout_toRightOf="@+id/language_label"
             android:entries="@array/languages"/>
+
+        <Button
+            style="@android:style/Widget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/book_button"
+            android:text="@string/book_button_label"
+            android:layout_below="@id/search_query"
+            android:layout_toRightOf="@+id/language_chooser"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/language_chooser"/>
     </RelativeLayout>
 
     <ListView android:id="@+id/book_list"
@@ -88,8 +89,4 @@
         android:focusableInTouchMode="true"
         android:clickable="true">
     </ListView>
-    
-
-
-
 </LinearLayout>
