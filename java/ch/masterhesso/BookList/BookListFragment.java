@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -78,6 +79,20 @@ public class BookListFragment extends Fragment {
         this.layoutInflator = LayoutInflater.from(getActivity());
         this.booksButton = (Button)getView().findViewById(R.id.book_button);
         this.searchParams = (EditText)getView().findViewById(R.id.search_query);
+        searchParams.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                // If the event is a key-down event on the "enter" button
+                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                    // Perform action on key press
+                    booksButton.performClick();
+                    return true;
+                }
+                return false;
+            }
+        });
+
         this.patternSpinner = (Spinner)getView().findViewById(R.id.pattern_chooser);
         this.languageSpinner = (Spinner)getView().findViewById(R.id.language_chooser);
         
