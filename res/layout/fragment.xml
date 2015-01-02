@@ -48,12 +48,11 @@
             android:layout_below="@id/search_query"
             android:layout_alignParentLeft="true"
             style="@android:style/TextAppearance.DeviceDefault.Medium.Inverse" />
-
         <Spinner
+            android:id="@+id/pattern_chooser"
             style="@android:style/Widget.Spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/pattern_chooser"
             android:layout_below="@+id/search_query"
             android:layout_toRightOf="@+id/criterion_label"
             android:entries="@array/search_param"

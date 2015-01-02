@@ -26,7 +26,7 @@
 			android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 			android:textStyle="bold"
-            android:textColor="#777777"
+            android:textColor="@color/black"
 			android:shadowColor="@color/black"
             android:shadowRadius="0.5"
 			android:shadowDx="0"
@@ -36,6 +36,7 @@
 		<TextView
             android:id="@+id/author_name"
 			android:text="Best Badger: "
+            android:textColor="@color/help_view"
             android:layout_width="wrap_content"
             android:layout_marginLeft="4dip"
 			android:layout_height="wrap_content"
@@ -44,12 +45,12 @@
         <TextView
             android:id="@+id/book_description"
             android:text="Best Badger: "
+            android:textColor="@color/result_text"
             android:layout_width="wrap_content"
             android:layout_marginLeft="4dip"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/book_icon"
             android:layout_below="@id/author_name"/>
-
         <RatingBar
             android:id="@+id/averRat"
             android:layout_width="wrap_content"
