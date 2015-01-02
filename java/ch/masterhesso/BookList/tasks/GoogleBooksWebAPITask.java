@@ -130,6 +130,7 @@ public class GoogleBooksWebAPITask extends AsyncTask<String, Integer, String> {
                 try {
                     JSONObject imageLinks = volumeInfo.getJSONObject("imageLinks");
                     imageURI = imageLinks.getString("thumbnail");
+                    Log.d(debugTag, imageURI);
                 }catch(JSONException e)
                 {
 //                    Log.d(debugTag, "No image URI");

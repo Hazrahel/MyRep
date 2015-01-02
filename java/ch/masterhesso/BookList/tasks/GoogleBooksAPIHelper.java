@@ -28,10 +28,17 @@ public class GoogleBooksAPIHelper {
     private static final String googleBookAPIQueryUrlBase =
         "https://www.googleapis.com/books/v1/volumes?q=";
     private static final String googleBookAPIQueryUrlLangRestrict = "&langRestrict=";
-    private static final String googleBookAPIQueryUrlIemsSelected = "&libraryRestrict=no-restrict&"+
+/*    private static final String googleBookAPIQueryUrlIemsSelected = "&libraryRestrict=no-restrict&"+
                 "maxResults=40&orderBy=relevance&printType=books&fields=items(volumeInfo(description%2Ccategories%2C"+
                 "language%2CpublishedDate%2CimageLinks(medium%2Csmall)%2Ctitle%2CindustryIdentifiers%2Cauthors%2CcanonicalVolumeLink%2C"+
                 "ratingsCount%2Cpublisher%2CaverageRating))";
+*/
+
+    private static final String googleBookAPIQueryUrlIemsSelected = "&libraryRestrict=no-restrict&"+
+            "maxResults=40&orderBy=relevance&printType=books" +
+            "&fields=items(etag%2Cid%2Ckind%2CrecommendedInfo%2CselfLink%2CvolumeInfo" +
+            "(description%2Ccategories%2Clanguage%2CpublishedDate%2CimageLinks%2Ctitle%2CindustryIdentifiers%2C" +
+            "subtitle%2Cauthors%2CcanonicalVolumeLink%2CinfoLink%2CratingsCount%2Cpublisher%2CmainCategory%2CaverageRating))";
     private static final String googleBookAPIQueryUrlKey = "&key=AIzaSyDkiaqg-zjl8I05s41-Mhj1VvFsBxJlQn4";
 
     private static final int HTTP_STATUS_OK = 200;

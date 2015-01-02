@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/book_button"
             android:text="@string/book_button_label"
-            android:layout_below="@id/language_chooser"
+            android:layout_below="@id/search_query"
             android:layout_alignParentRight="true"/>
     </RelativeLayout>
 
